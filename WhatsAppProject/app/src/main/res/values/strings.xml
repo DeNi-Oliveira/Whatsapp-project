@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">WhatsAppProject</string>
+    <string name="digite_email">Digite seu email</string>
+    <string name="digite_senha">Digite sua senha</string>
+</resources>
