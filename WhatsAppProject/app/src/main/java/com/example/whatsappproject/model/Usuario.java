@@ -1,4 +1,4 @@
-package model;
+package com.example.whatsappproject.model;
 
 public class Usuario {
 

@@ -17,8 +17,8 @@ import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException;
 import com.google.firebase.auth.FirebaseAuthUserCollisionException;
 import com.google.firebase.auth.FirebaseAuthWeakPasswordException;
 
-import config.ConfiguracaoFirebase;
-import model.Usuario;
+import com.example.whatsappproject.config.ConfiguracaoFirebase;
+import com.example.whatsappproject.model.Usuario;
 
 public class CadastroActivity extends AppCompatActivity {
     private TextInputEditText campoNome, campoEmail, campoSenha;
@@ -55,7 +55,7 @@ public class CadastroActivity extends AppCompatActivity {
                     }catch (FirebaseAuthWeakPasswordException e) {
                         excecao = "Digite uma senha mais forte";
                     }catch (FirebaseAuthInvalidCredentialsException e) {
-                        excecao = "Digite um enail válido";
+                        excecao = "Digite um email válido";
                     }catch (FirebaseAuthUserCollisionException e) {
                         excecao = "Esta conta já foi cadastrada";
                     }catch (Exception e){
@@ -73,7 +73,12 @@ public class CadastroActivity extends AppCompatActivity {
         String textEmail = campoEmail.getText().toString();
         String textSenha = campoSenha.getText().toString();
 
-        if (!textNome.isEmpty() ){
+        if (textNome.isEmpty() ) {
+            Toast.makeText(CadastroActivity.this, "Preencha o nome", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        
             if (!textEmail.isEmpty() ){
                 if (!textSenha.isEmpty() ){
 
@@ -87,12 +92,9 @@ public class CadastroActivity extends AppCompatActivity {
                 }else{
                     Toast.makeText(CadastroActivity.this,"Preencha a senha", Toast.LENGTH_SHORT).show();
                 }
-            }else{
-                Toast.makeText(CadastroActivity.this,"Preencha o email", Toast.LENGTH_SHORT).show();
-            }
-        }else{
-            Toast.makeText(CadastroActivity.this,"Preencha o nome", Toast.LENGTH_SHORT).show();
-        }
+            }else {
+                            Toast.makeText(CadastroActivity.this, "Preencha o email", Toast.LENGTH_SHORT).show();
+                        }
 
     }
 }
